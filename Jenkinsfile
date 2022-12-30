@@ -1,5 +1,5 @@
 pipeline { 
-    agent {label 'slave7'}
+    agent any
     stages { 
         stage ('checkout') { 
             steps {
@@ -15,21 +15,8 @@ pipeline {
                 sh "mvn clean package"
              }
         }
-        stage ('deploy') { 
-             steps {
-              sh "cp /home/slave7/workspace/tomtest/target/hello-world-war-1.0.0.war /opt/tomcat/webapps" 
-             }
-        }
-        stage ('QA') { 
-             steps {
-                echo "QA"
-             }
-        }
-        stage ('Monitor') { 
-             steps {
-                echo "Monitor"
+       
              }
         }
  
-    }           
- }
+  
